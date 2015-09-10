@@ -1,12 +1,17 @@
 module.exports = {
     options:{
-        componentsDir: "components"
+        componentsDir: "components",
     },
 
     foo:{
         files:[
-            {src: 'views/*.html', dest: 'build/'},
-            {src: 'views-1/*.html', dest: 'build/'}
+            //{src: 'views/*.html', dest: 'build/TEST.html'},
+            {
+                expand:true,
+                cwd:'views',
+                src: '*.html',
+                dest: 'build/'
+            }
         ]
     },
 
