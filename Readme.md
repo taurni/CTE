@@ -12,3 +12,5 @@ Yes, I could use polymer but making my own sounds like a lot of fun, plus I need
     * To include component just add *\<component-name\>\</component-name\>* tag
     * parameters in component are taken as mustache data
      
+
+## NOTES
