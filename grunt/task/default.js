@@ -27,7 +27,7 @@ module.exports = function(grunt) {
             });
             _files.forEach(function(file){
                 fileMap[file] = _dest;
-                compiler(file,componentsList, function(err,contents,fileSrc){
+                compiler(file,componentsList,options.componentsDir, function(err,contents,fileSrc){
                     if(err){
                         return console.error(err);
                     }
@@ -42,16 +42,6 @@ module.exports = function(grunt) {
 
 
         });
-
-        /////////////////////
-        /*
-        files.forEach(function(file){
-            //combile component
-            console.log("F: ",file);
-            compiler(grunt.file.read(file),componentsList,saveFile());
-        });
-*/
-
 
     });
 

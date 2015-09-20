@@ -1,6 +1,6 @@
 module.exports = {
     options:{
-        componentsDir: "components",
+        componentsDir: "app/components",
     },
 
     foo:{
@@ -8,7 +8,7 @@ module.exports = {
             //{src: 'views/*.html', dest: 'build/TEST.html'},
             {
                 expand:true,
-                cwd:'views',
+                cwd:'app/views',
                 src: '*.html',
                 dest: 'build/'
             }
