@@ -14,4 +14,12 @@ describe("Compiled component",function(){
     it("includes innerHTML content",function(){
        expect(compiled).toEqual(jasmine.stringMatching(content));
     });
+
+   it("callback function",function(done){
+      comp.compile(function(err,data){
+         expect(compiled).not.toMatch(/({+\s*[#/^>]?\s*)\w+.(}+)+/);
+         expect(compiled).toEqual(jasmine.stringMatching(content));
+         done();
+      })
+   })
 });

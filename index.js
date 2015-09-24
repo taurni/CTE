@@ -4,7 +4,7 @@
  */
 var compiler = require("./lib/compiler.js");
 var fs =        require('fs');
-var componentsDir = "components";
+var componentsDir = "app/components";
 //var htmlString = fs.readFileSync('views/test.html').toString();
 //var $ = cheerio.load(htmlString);
 
@@ -15,7 +15,7 @@ fs.readdir(componentsDir,function(err,componets){
         return console.error(err);
     }
 
-    compiler('views/test.html',componets,function(err,data){
+    compiler('app/views/test.html',componets,function(err,data){
         fs.writeFile("build/test.html", data, function(err) {
             if(err) {
                 return console.log(err);
