@@ -5,7 +5,7 @@ module.exports = {
 
     foo:{
         files:[
-            //{src: 'views/*.html', dest: 'build/TEST.html'},
+            //{src: 'app/views/test.js', dest: 'build/TEST.html'},
             {
                 expand:true,
                 cwd:'app/views',

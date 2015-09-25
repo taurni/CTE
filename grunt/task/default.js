@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
     grunt.registerMultiTask('default', 'My "default" task description.', function () {
-        var compiler = require("../../lib/compiler.js");
+        var Template = require("../../lib/compiler.js");
         var options = this.options({
             //default values
             componentsDir:  "components",
@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 
         //view files
         this.files.forEach(function(fileObj){
+            var template;
             var _dest = fileObj.dest;
             var _files = fileObj.src.filter(function(filepath){
                 // Remove nonexistent files (it's up to you to filter or warn here).
@@ -26,13 +27,16 @@ module.exports = function(grunt) {
                 }
             });
             _files.forEach(function(file){
-                fileMap[file] = _dest;
-                compiler(file,componentsList,options.componentsDir, function(err,contents,fileSrc){
+               // fileMap[file] = _dest;
+
+                //template = new Template (file,componentsList,options.componentsDir);
+                template = new Template (grunt.file.read(file),componentsList,options.componentsDir);
+                template.compile(function(err,contents){
                     if(err){
                         return console.error(err);
                     }
                     //write file
-                    grunt.file.write(fileMap[fileSrc], contents);
+                    grunt.file.write( _dest, contents);
                     if(count++ == filesCount){
                         // All done!
                         done();
