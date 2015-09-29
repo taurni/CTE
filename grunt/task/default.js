@@ -11,7 +11,6 @@ module.exports = function(grunt) {
         var filesCount = files.length;
         var componentsList = grunt.file.expand({cwd:options.componentsDir},'*');
         var done = this.async();
-        var fileMap ={};
 
         //view files
         this.files.forEach(function(fileObj){
@@ -27,7 +26,6 @@ module.exports = function(grunt) {
                 }
             });
             _files.forEach(function(file){
-               // fileMap[file] = _dest;
 
                 //template = new Template (file,componentsList,options.componentsDir);
                 template = new Template (grunt.file.read(file),componentsList,options.componentsDir);
@@ -49,7 +47,7 @@ module.exports = function(grunt) {
 
     });
 
-}
+};
 
 
     //grunt.log.writeln('Currently running the "default" task.');
